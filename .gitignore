@@ -1,0 +1,4 @@
+# Config file
+/config/config.env
+.idea
+node_modules
