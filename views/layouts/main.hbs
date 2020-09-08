@@ -14,16 +14,26 @@
 
 </head>
 <body>
-    {{>_header}}
+{{>_header}}
+{{>_add_btn}}
 <div class="container">
     {{{body}}}
 </div>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        // Initialize sidebar
-        M.Sidenav.init(document.querySelector('.sidenav'));
-    </script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js"
+        integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA=="
+        crossorigin="anonymous">
+</script>
+<script>
+    // Initialize sidebar
+    M.Sidenav.init(document.querySelector('.sidenav'));
+    M.FormSelect.init(document.querySelector('#status'));
+    CKEDITOR.replace('body', {
+        plugins: 'wysiwygarea, toolbar, basicstyles, link'
+    });
+</script>
 </body>
 </html>

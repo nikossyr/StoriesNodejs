@@ -13,10 +13,12 @@
         </thead>
         <tbody>
         {{#each stories}}
-            <td><a href="/stories/{{stories._id}}">{{stories.title}}</a></td>
-            <td>{{stories.createdAt}}</td>
-            <td><span class="dash-status">{{stories.status}}</span></td>
-            <td></td>
+            <tr>
+                <td><a href="/stories/{{_id}}">{{title}}</a></td>
+                <td>{{createdAt}}</td>
+                <td><span class="dash-status">{{status}}</span></td>
+                <td></td>
+            </tr>
         {{/each}}
         </tbody>
     </table>
