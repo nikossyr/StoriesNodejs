@@ -1,11 +1,13 @@
 const path = require('path')
 const express = require('express');
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const passport = require('passport');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const connectDB = require('./config/db');
 
 // Load config
@@ -31,7 +33,8 @@ app.set('view engine', '.hbs')
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MongoStore({mongooseConnection: mongoose.connection})
 }))
 
 // Passport middleware
